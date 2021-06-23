@@ -1,30 +1,24 @@
 # Tri
 
-*A small strongly typed interpreted programming language.*
+## A toy BF derivative written in c++ for fun.
 
-## Language
+### Introduction
 
-The syntax is inspired from Python, Rust & ES6+
+I'll assume you're already familiar with the esoteric BF language, in case you're not here's what's included:
 
-Hello world in Tri:
-```rust
-// hello_world.tri
-println("Hello world");
-```
+| Operator  | Description                                                                                                                                                                        |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| >         | increment the data pointer (to point to the next cell to the right).                                                                                                               |
+| <         | decrement the data pointer (to point to the next cell to the left).                                                                                                                |
+| +         | increment (increase by one) the byte at the data pointer.                                                                                                                          |
+| -         | decrement (decrease by one) the byte at the data pointer.                                                                                                                          |
+| .         | output the byte at the data pointer.                                                                                                                                               |
+| ,         | decrement (decrease by one) the byte at the data pointer.                                                                                                                          |
+| [         | if the byte at the data pointer is zero, then instead of moving the instruction pointer forward to the next command, jump it forward to the command after the matching ] command.  |
+| ]         | if the byte at the data pointer is nonzero, then instead of moving the instruction pointer forward to the next command, jump it back to the command after the matching [ command.  |
 
-## Progress
+Tri further expands on BF, here's currently what's added:
 
- - [ ] Design
-   - [ ] Language spec (PEST)
-   - [ ] Exception fallback
-   - [ ] JIT Compilation
-   - [ ] Symbol table
-
- - [ ] Compiler
-   - [ ] Translation targets
-   - [ ] Garbage collection
-   - [ ] Compiler error messages
-
- - [ ] Runtime
-   - [ ] Hot (re)loading
-   - [ ] Garbage collector
+| Operator  | Description                                                                                                                                                                        |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ?         | output the integer value at the data pointer (as opposed to writing it directly like `.`)                                                                                          |
